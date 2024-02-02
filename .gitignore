@@ -1,0 +1,9 @@
+.ipynb_checkpoints
+
+config.cfg
+
+-p
+
+output.csv.gz
+
+ny_taxi_postgres_data/

@@ -1,0 +1,33 @@
+Docker Command
+- Build a custom dockerimage
+ docker build -t name:version .
+
+
+- Run a dockerfile
+docker run -it imagename
+
+
+- Run a postgres in docker
+docker run -it \
+-e POSTGRES_USER="root" \
+-e POSTGRES_PASSWORD="root" \
+-e POSTGRES_DB="ny_taxi" \
+-v 'c:/users/sihar/documents/hacktiv/bahan belajar/dezoomcamp2024/docker-sql/ny_taxi_postgres_data':/var/lib/postgresql/data \
+-p 5432:5432 \
+--name postgresdb \
+--network=postgres-network \
+postgres:13
+
+- Connect betweend container
+firts must create a network 
+docker network create postgres-network
+
+- Run pgadmin in docker
+docker run -it \
+-e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
+-e PGADMIN_DEFAULT_PASSWORD="root" \
+-p 8081:80 \
+--name pgadmin \
+--network=postgres-network \
+dpage/pgadmin4 
+
